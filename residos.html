@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Separador de Resíduos - ODS 12</title>
+  <!-- Se residos.css for um ficheiro direto na raiz, troca para href="residos.css" -->
+  <link rel="stylesheet" href="residos.css/residos.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <span class="badge">Extensão UniBTA · ODS 12</span>
+      <h1>Separador de Resíduos</h1>
+      <p>Escreve o tipo de resíduo ou um objeto comum (ex.: garrafa pet, pilha, papelão) para ver como descartar corretamente.</p>
+    </header>
+
+    <div class="input-group">
+      <input
+        type="text"
+        id="residuoInput"
+        placeholder="Escreve o resíduo aqui..."
+        onkeydown="if(event.key === 'Enter') classificarResiduo()"
+      />
+      <button type="button" onclick="classificarResiduo()">Verificar</button>
+    </div>
+
+    <div class="atalhos">
+      <button type="button" onclick="selecionarAtalho('papel')">Papel</button>
+      <button type="button" onclick="selecionarAtalho('plastico')">Plástico</button>
+      <button type="button" onclick="selecionarAtalho('vidro')">Vidro</button>
+      <button type="button" onclick="selecionarAtalho('metal')">Metal</button>
+      <button type="button" onclick="selecionarAtalho('organico')">Orgânico</button>
+      <button type="button" onclick="selecionarAtalho('eletronico')">Eletrônico</button>
+    </div>
+
+    <section id="resultado" class="resultado oculto">
+      <div class="cor-indicador" id="corIndicador"></div>
+      <div class="resultado-conteudo">
+        <h2 id="tituloLixeira">Lixeira</h2>
+        <p id="orientacaoTexto">A orientação de descarte vai aparecer aqui.</p>
+      </div>
+    </section>
+
+    <div class="historico-box oculto" id="historicoBox">
+      <h3>Últimas consultas (<span id="contador">0</span>)</h3>
+      <ul id="listaHistorico"></ul>
+    </div>
+  </main>
+
+  <script src="js/residos.js"></script>
+</body>
+</html>
